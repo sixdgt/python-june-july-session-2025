@@ -137,3 +137,23 @@ print("using welcome message repeatedly")
 for i in range(5):
     welcome_message()
 
+
+print("Nested for loop example")
+
+whole_num = [
+    (1, 3, 5), (2, 4, 6, 7, 8, 0), (11, 12, 13, 14), (100, 102, 105)
+    ]
+
+print("Whole number data: ", whole_num)
+print("Whole number index 0: ", whole_num[0])
+print("Whole number index 1: ", whole_num[1])
+print("Whole number index 2: ", whole_num[2])
+print("Whole number index 3: ", whole_num[3])
+
+for i in range(len(whole_num)):
+    print("Whole number data with index: index is: ", i, " Data is: ", whole_num[i])
+    temp_data = whole_num[i]
+    print("Temporary data: ", temp_data)
+    print(type(temp_data))
+    for j in range(len(temp_data)):
+        print("Temporary data of Whole number with index: index is: ", j, " Data is: ", temp_data[j])
