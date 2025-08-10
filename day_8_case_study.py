@@ -9,12 +9,17 @@ products = {
     'mango' : {'price': 130.00, 'stock': 12}, # mango details
     'xtreme' : {'price': 185.00, 'stock': 30} # xtreme details
 }
-
 # cart
 cart = {} # empty cart because when the program is executed for the first time not products are added
 
 # Lambda function to calculate 10% discount on totals >= 500
 get_discount = lambda total: total * 0.10 if total >= 500 else 0
+
+# def get_discount(total):
+#     if total >= 500:
+#         return total * 0.10
+#     else:
+#         return 0
 
 # view products
 def view_products():
@@ -46,6 +51,10 @@ def add_to_cart():
     else:
         print("Product not found.")
 
+cart = {
+    'banana': 2,
+    'milk': 5
+}
 # remove from cart
 def remove_from_cart():
     """
@@ -54,9 +63,9 @@ def remove_from_cart():
     item = input("Enter product name: ").lower()
     if item in cart:
         quantity = int(input("Enter quantity to remove: "))
-        if quantity >= cart[item]:
+        if quantity >= cart[item]: # cart['banana']
             products[item]['stock'] += cart[item] # adding the stock again since the item is removed from cart
-            del cart[item]
+            del cart[item] # cart.pop(item)
         else:
             cart[item] -= quantity # incase of removing quantity lesser than available in the cart
             products[item]['stock'] += quantity
